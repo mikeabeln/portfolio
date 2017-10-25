@@ -1,0 +1,207 @@
+<!doctype html>
+<html class="background">
+  <head>
+    <meta charset="utf-8">
+    <title>Your Name</title>
+    <meta name="fragment" content="!"/>   
+    <meta name="description" content="Graphic Designer and Photographer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Michael Abeln">
+    <meta name="keywords" content="Graphic,Design,Photography,Development,Designer,Photographer,Developer,Michael,Abeln,Website,Portfolio,Mike,DAAP,Work,Cincinnati,Portland,Visual,Communication,Motion,Animation,Video,Professional">
+
+    <!-- Google Analytics -->
+<!--     <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'YOUR ID');
+    ga('set', 'appName', 'YOUR APP NAME');
+    ga('send', 'pageview');
+    </script> -->
+
+    <!-- End Google Analytics -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <!-- build:css(.) /styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) /styles/main.css -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="styles/fancybox/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400" rel="stylesheet">
+  </head>
+  <body ng-app="michaelabeln">
+
+    <div class="site-wrapper">
+
+      <nav ng-controller="NavCtrl" class="nav-cont">
+        <header ng-cloak class="nav-style">
+
+          <a ng-href="#!/" class="nav-section toolbar-link" flex ng-click="resetOverlay()"> 
+            <img class="brand-img" src="images/logo.svg">
+            <span class="user-title">Your Name</span>
+          </a>
+
+          <div class="nav-section nav-links-cont">
+
+            <ul class="nav-links-list">
+
+              <li ng-repeat="item in links" ng-click="location === item.url" class="nav-list-item nav-text-link" ng-class="{'no-display': $first, 'no-marg': item.firstLink}">
+                <a ng-href="#!{{item.url}}" ng-class="{'link-active': item.active}" class="desktop-nav-link">{{item.title}}</a>
+              </li>
+
+              <li class="nav-list-item nav-icon-link nav-menu" ng-click=" menuOverlay = !menuOverlay; overlay($event)">
+                <span class="nav-icon nav-menu-icon">
+                  <span class="m1"></span>
+                  <span class="m2"></span>
+                  <span class="m3"></span>
+                </span>
+              </li>
+
+              <li class="nav-list-item nav-icon-link nav-filter" ng-show="location === '/' || location === '/design'" ng-click="filterOverlay = !filterOverlay; overlay($event)">
+                <span class="nav-icon nav-filter-icon">
+                  <span class="f1"></span>
+                  <span class="f2"></span>
+                  <span class="f3"></span>
+                </span>
+              </li>
+
+            </ul>
+
+          </div>
+        </header>
+
+        <div class="side-nav-icons">
+          <div class="side-nav-icon" ng-click="$root.scrollToTop()">
+            <i class="material-icons md-18">arrow_upward</i>
+          </div>
+          <div class="side-nav-icon" ng-if="location !== '/'" ng-click="back()">
+            <i class="material-icons md-18">arrow_back</i>
+          </div>
+<!--           <div class="side-nav-icon">
+            <i class="material-icons md-18">search</i>
+          </div> -->
+        </div>
+
+        <div class="site-overlay" ng-click="overlay($event)" ng-cloak>
+
+          <div class="menu-overlay" ng-if="menuOverlay === true">
+            <ul class="overlay-list menu-overlay-list">
+              <li class="overlay-list-item menu-list-item">
+                <a href="#!/" ng-click="deactivateMenu(); links[0].active ? null : links[0].active = !links[0].active; overlay($event)">
+                  <h3 ng-class="{'active' : links[0].active,
+                                 'inactive' : !links[0].active}" 
+                      class="no-marg overlay-item-text">Home</h3>
+                </a>
+                <span class="overlay-spacer"></span>
+              </li>
+              <li ng-repeat="item in links" ng-class="{'no-display': $first}" class="overlay-list-item menu-list-item">
+                <a ng-href="#!{{item.url}}" ng-click="deactivateMenu(); item.active ? null : item.active = !item.active; overlay($event)">
+                  <h3 ng-class="{'active' : item.active,
+                                 'inactive' : !item.active}" 
+                      class="overlay-item-text">{{item.title}}</h3>
+                </a>
+                <span class="overlay-spacer" ng-class="{'no-display': $last}"></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="filter-overlay" ng-if="filterOverlay === true">
+            <ul class="overlay-list filter-overlay-list">
+              <li class="overlay-list-item filter-list-item" ng-repeat="item in filters" ng-click="deactivate(); item.active ? null : item.active = !item.active; setFilter($event);" ng-mouseenter="filterItemEnter($event)" ng-mouseleave="filterItemLeave($event)">
+                <h3 ng-class="{'active' : item.active,
+                               'inactive' : !item.active}"
+                    class="overlay-item-text">{{item.filter}}</h3>
+                <span class="filter-count" ng-class="{'active-filter' : item.active}">{{item.count}}</span>
+                <span class="overlay-spacer" ng-class="{'no-opacity': $last}"></span>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+      <md-content class="content-cont">
+
+        <div ng-view="" class="viewport"></div>
+
+      </md-content>
+
+      <div class="footer">
+        <div class="footer-content-cont">
+          <p class="footer-line">Site built with&nbsp;<md-icon class="material-icons md-18 icon-footer">code</md-icon>&nbsp;+&nbsp;<md-icon class="material-icons md-18 icon-footer">favorite</md-icon>&nbsp;by Mike Abeln.&nbsp;</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+   <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <!-- build:js(.) /scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+    <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+    <script src="bower_components/outlayer/item.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/masonry/masonry.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="bower_components/angular-images-loaded/angular-images-loaded.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) /scripts/scripts.js -->
+    <script src="scripts/lib/angular-masonry-directive.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <script src="scripts/filters/projectsFilter.js"></script>
+
+    <script src="scripts/data/work-data.js"></script>
+    <script src="scripts/data/photography-data.js"></script>
+    <script src="scripts/data/resume-data.js"></script>
+
+    <script src="scripts/services/MobileCheck.js"></script>
+    <script src="scripts/services/ScrollService.js"></script>
+    <script src="scripts/services/ImagesLoaded.js"></script>
+
+    <script src="scripts/controllers/nav.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/resume.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
+
+    <script src="scripts/controllers/photography.js"></script>
+    <script src="scripts/controllers/photoSet.js"></script>
+
+    <script src="scripts/controllers/design.js"></script>
+    <script src="scripts/controllers/designSet.js"></script>
+
+    <!-- endbuild -->
+    <script src="scripts/fancybox/jquery.fancybox.min.js"></script>
+</body>
+</html>

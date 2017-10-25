@@ -1,0 +1,30 @@
+<div class="page-content" masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile", "columnWidth" : ".tile", "gutter": ".gutter"}'>
+
+    <div class="gutter"></div>
+
+    <div ng-repeat="tile in projects | orderBy:index:reverse=true" class="tile" masonry-tile ng-mouseenter="tileEnter($event)" ng-mouseleave="tileLeave($event)" images-loaded="imagesLoadedEvents" images-loaded-watch="tile">
+
+        <a ng-href="#!/p/{{tile.link}}" class="entry-link">
+            <div class="loading-indicator">
+                <md-progress-linear class="md-primary"></md-progress-linear>
+            </div>
+            <img ng-src="{{tile.coverImg}}" class="tile-image">
+
+        </a>
+
+        <a ng-href="#!/p/{{tile.link}}" class="entry-link">
+
+            <div class="entry-caption-container">
+                <div class="entry-caption-content">
+                    <div class="entry-caption-text">
+                        <span class="entry-caption-meta" ng-repeat="meta in tile.meta" ng-if="$index < 3">{{meta}}<span ng-if="!$last">,&nbsp;</span></span>
+                        <h3 class="entry-caption-title">{{tile.title}}</h3>
+                    </div>
+                </div>
+            </div>
+
+        </a>
+
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="project-intro-cont page-content">
+	<div class="project-meta-cont">
+		<div class="project-meta-holder">
+			<p class="project-meta-header">Camera</p>
+			<p class="project-meta-entry">{{project.camera}}</p>
+		</div>
+		<div class="project-meta-holder">
+			<p class="project-meta-header">Lenses</p>
+			<p class="project-meta-entry" ng-repeat="lens in project.lenses">{{lens}}</p>
+		</div>
+	</div>
+	<div class="project-description-cont">
+		<h2 class="project-title">{{project.title}}</h2>
+		<p class="project-description">{{project.description}}</p>
+	</div>
+</div>
+
+<div ng-if="project.mainImg" ng-cloak>
+ 	<div ng-repeat="tile in project.mainImages" flex layout="column" class="main-img-cont" ng-cloak images-loaded="imagesLoadedEvents" images-loaded-watch="tile">
+ 		<a ng-href="{{tile.src}}" class="main-img" data-fancybox="project-main" data-caption="{{tile.caption}}">
+ 			<div class="photo-main-image-holder">
+ 			  <div class="loading-indicator">
+                  <md-progress-linear class="md-primary"></md-progress-linear>
+              </div>
+		      <img class="project-main-img" ng-src="{{tile.src}}">
+		    </div>
+		</a>
+		<span class="auto-marg" layout="row" ng-if="project.mainInfo">
+			<md-icon class="material-icons md-18 settings-icon">camera</md-icon>
+			<p class="main-img-info main-img-info-light"><span class="underline main-img-info main-img-info-bold">{{tile.title}}</span>&nbsp;shot on a&nbsp;<span class="main-img-info main-img-info-bold">{{tile.camera}}</span>&nbsp;|&nbsp;<span></span>{{tile.setup}}</p>
+		</span>
+ 	</div>
+</div>
+
+
+ <div class="" ng-cloak masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile", "columnWidth" : ".tile", "gutter": ".gutter"}'>
+
+    <div class="gutter"></div>
+
+    <div ng-repeat="tile in project.galleryImages" class="tile" masonry-tile images-loaded="imagesLoadedEvents" images-loaded-watch="tile">
+
+        <a ng-href="{{tile.src}}" data-fancybox="project-gallery" class="entry-link">
+        	<div class="loading-indicator">
+                <md-progress-linear class="md-primary"></md-progress-linear>
+            </div>
+            <img ng-src="{{tile.src}}" class="tile-image" data-caption="{{tile.caption}}">
+
+        </a>
+
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="about-intro-cont">
+	<div class="about-image-cont">
+		<div class="about-image-holder" images-loaded="imagesLoadedEvents">
+			<div class="loading-indicator-middle">
+	            <md-progress-linear class="md-primary"></md-progress-linear>
+	        </div>
+			<img class="about-image" src="./images/ph/ph-5.jpg">
+		</div>
+	</div>
+	<div class="about-intro">
+		<h2 class="about-intro-header">Hey I'm Mike.</h2>
+		<p class="about-intro-text">I&apos;m a designer, photographer, and developer with about 4 years experience based in the Portland, OR area. I&apos;m a recent graduate with a Graphic Communication Design degree from the College of DAAP in Cincinnati. I&apos;ve worked with creative agencies on dozens of projects for clients like Google, HTC, Raid, L&apos;Or&eacute;al, Secret, Stouffer&apos;s, and Sears. I design to create the unordinary, to speak to the unspoken-to, and to cross the uncrossed gaps.</p>
+	</div>
+</div>
+
+
+<h1 class="resume-title page-content">My Resume</h1>
+
+<md-content class="resume-content">
+
+    <div ng-repeat="item in cvData.forms" flex layout="column" class="full-bleed cv-repeat">
+
+        <div class="hr-cont">
+            <hr class="cv-break">
+        </div>
+
+        <div>
+
+	        <div class=" cv-title-cont full-bleed">
+	            <div class="">
+	                    <h1 class="cv-section-title">{{item.title}}</h1>
+	            </div>
+	        </div>
+
+	        <div class="cv-repeat-cont">
+
+		        <div ng-repeat="time in item.times" class="resume-section-content" ng-class="{'cv-section-repeat': !$first}">
+		            <div class=" cv-entry-cont">
+		                <p class="cv-section-main" ng-if="time.main">{{time.main}}</p>
+		                <p class="cv-section-subhead" ng-if="time.role" ng-bind-html="time.role"></p>
+		                <p class="cv-section-subhead" ng-if="time.time" ng-bind-html="time.time"></p>
+		                <p class="cv-section-text" ng-if="time.text" ng-bind-html="time.text"></p>
+		            </div>
+		        </div>
+
+	        </div>
+
+        </div>
+
+    </div>
+
+</md-content>

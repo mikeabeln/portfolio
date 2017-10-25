@@ -1,0 +1,41 @@
+
+<div class="contact-desc-cont page-content">
+	<h3 class="contact-desc-header" ng-bind-html="header"></h3>
+	<h2 class="contact-desc">Let's chat about the world? Talk about a new project? Get a Quote? Drop my inbox a line and we'll get the ball rolling.</h2>
+</div>
+<div class="contact-form-cont">
+	<form name="contactForm" class="contact-form">
+
+		<md-input-container class="contact-input-cont inline-input inline-input-left">
+		  <label>Your Name</label>
+		  <input required type="text" class="first-input contact-form-input" name="name" ng-model="email.name">
+		  <div ng-messages="contactForm.name.$error" role="alert">
+	        <div ng-message="required">This is required.</div>
+	      </div>
+		</md-input-container>
+
+		<md-input-container class="contact-input-cont inline-input inline-input-right">
+		  <label>Your Email</label>
+		  <input required type="email" class="contact-form-input" name="address" ng-model="email.address" ng-pattern="/^.+@.+\..+$/">
+		  <div ng-messages="contactForm.address.$error" role="alert">
+	        <div ng-message="required">This is required.</div>
+	        <div ng-message-exp="['pattern']">Your email should look like an e-mail address!</div>
+	      </div>
+		</md-input-container>
+
+		<md-input-container class="contact-input-cont block-input">
+		  <label>Subject</label>
+		  <input type="text" name="subject" class="contact-form-input" ng-model="email.subject">
+		</md-input-container>
+
+		<md-input-container class="contact-input-cont contact-text-area block-input">
+		  <label>Your Message</label>
+		  <textarea required rows="7" type="text" class="contact-form-input" ng-model="email.content" md-minlength="1" md-maxlength="2500"></textarea>
+		</md-input-container>
+
+		<md-button ng-disabled="true" type="submit" ng-if="!email.name || !email.address || !email.content" class="contact-button md-raised md-primary">Send</md-button>
+
+		<md-button type="submit" ng-if="email.name && email.address && email.content" ng-click="submit($event); contactForm.$setPristine();" class="contact-button md-raised md-primary reset">Send</md-button>
+
+	</form>
+</div>

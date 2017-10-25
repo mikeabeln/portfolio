@@ -1,0 +1,169 @@
+<div class="page-content project-intro-cont">
+	<div class="project-meta-cont">
+		<div class="project-meta-holder">
+			<p class="project-meta-header">Client</p>
+			<p class="project-meta-entry" ng-bind-html="project.client"></p>
+		</div>
+		<div class="project-meta-holder" ng-if="project.agency">
+			<p class="project-meta-header">Agency</p>
+			<p class="project-meta-entry" ng-bind-html="project.agency"></p>
+		</div>
+		<div class="project-meta-holder">
+			<p class="project-meta-header">Roles</p>
+			<p ng-repeat="role in project.roles" class="project-meta-entry">{{role}}<span ng-if="!$last">,&nbsp;</span></p>
+		</div>
+	</div>
+	<div class="project-description-cont">
+		<h2 class="project-title" ng-bind-html="project.title"></h2>
+		<p class="project-description" ng-bind-html="project.description"></p>
+	</div>
+</div>
+
+<div class="design-set project-content-cont">
+
+	<div ng-if="project.video" class="project-video-cont">
+
+	    <div ng-repeat="set in project.videos">
+
+	    	<div class="set-description-cont">
+	    		<p class="set-description-header" ng-bind-html="set.header"></p>
+	    		<p class="set-description-body" ng-bind-html="set.body"></p>
+	            <div class="auto-marg project-main-info">
+	            	<md-icon class="material-icons md-18 project-info-icon">videocam</md-icon>
+					<p class="project-main-info-text">{{set.content}}<span class="project-info-spacer">&nbsp;&nbsp;created with&nbsp;&nbsp;</span>{{set.technology}}</p>
+				</div>
+	    	</div>
+
+	    	<div class="masonry-tile-cont" ng-cloak>
+
+		    	<div ng-if="set.large"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".project-tile", "columnWidth" : ".project-tile", "gutter": ".gutter"}'>
+
+		    		<div class="gutter"></div>
+
+				    <div ng-repeat="video in set.large" class="project-tile video-tile" ng-class="{'tile-size-one': set.size === 1,
+																							 'tile-size-two': set.size === 2,
+																							 'tile-size-three': set.size === 3}" 
+																							 images-loaded="imagesLoadedEvents" images-loaded-watch="video" masonry-tile>
+
+				        <a ng-href="{{video.src}}" data-fancybox="project-main" data-caption="{{video.caption}}" class="entry-link">
+				        	<img ng-if="video.image" class="project-video-image" ng-src="{{video.image}}">
+				        	<video ng-if="!video.image" class="project-video" ng-attr-autoplay="{{video.autoplay}}" ng-attr-loop="{{video.loop}}" ng-attr-controls="{{video.controls}}" ng-src="{{video.src}}">
+		                	</video>
+			            </a>
+
+				    </div>
+
+				</div>
+
+				<div ng-if="set.small" masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".project-tile", "columnWidth" : ".project-tile", "gutter": ".gutter"}'>
+
+		    		<div class="gutter"></div>
+
+				    <div ng-repeat="item in set.small" class="project-tile video-tile" ng-class="{'tile-size-one': item.size === 1,
+																							 'tile-size-two': item.size === 2,
+																							 'tile-size-three': item.size === 3}" 
+																							 images-loaded="imagesLoadedEvents" images-loaded-watch="item" masonry-tile>
+
+				        <a ng-href="{{item.src}}" data-fancybox="project-main" data-caption="{{item.caption}}" class="entry-link">
+				        	<img ng-if="item.image" class="project-video-image" ng-src="{{item.image}}">
+				        	<video ng-if="!item.image" class="project-video" ng-attr-autoplay="{{item.autoplay}}" ng-attr-loop="{{item.loop}}" ng-attr-controls="{{item.controls}}" ng-src="{{item.src}}">
+		                	</video>
+			            </a>
+
+				    </div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div ng-if="project.mainImg" class="project-image-cont">
+
+		<div ng-repeat="set in project.mainImages" class="main-image-repeat">
+
+	    	<div class="set-description-cont">
+	    		<p class="set-description-header" ng-bind-html="set.header"></p>
+	    		<p class="set-description-body" ng-bind-html="set.body"></p>
+	            <div class="auto-marg project-main-info">
+	            	<md-icon class="material-icons md-18 project-info-icon">camera</md-icon>
+					<p class="project-main-info-text">{{set.content}}<span class="project-info-spacer">&nbsp;&nbsp;created with&nbsp;&nbsp;</span>{{set.technology}}</p>
+				</div>
+	    	</div>
+
+	    	<div class="masonry-tile-cont">
+
+		    	<div ng-if="set.large" masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".project-tile", "columnWidth" : ".project-tile", "gutter": ".gutter"}'>
+
+		    		<div class="gutter"></div>
+
+	    			<div ng-repeat="image in set.large" class="project-tile" ng-class="{'tile-size-one': set.size === 1,
+																								 'tile-size-two': set.size === 2,
+																								 'tile-size-three': set.size === 3}" 
+																								 images-loaded="imagesLoadedEvents" images-loaded-watch="image" masonry-tile>
+
+				        <a ng-href="{{image.src}}" data-fancybox="project-main" data-caption="{{image.caption}}" class="entry-link">
+				        	<div class="loading-indicator">
+				                <md-progress-linear class="md-primary"></md-progress-linear>
+				            </div>
+				        	<img class="project-main-image" ng-src="{{image.src}}">
+				        </a>
+
+	    			</div>
+
+	    		</div>
+
+	    		<div ng-if="set.small" masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".project-tile", "columnWidth" : ".project-tile", "gutter": ".gutter"}'>
+
+		    		<div class="gutter"></div>
+
+	    			<div ng-repeat="image in set.small" class="project-tile" ng-class="{'tile-size-one': image.size === 1,
+																								 'tile-size-two': image.size === 2,
+																								 'tile-size-three': image.size === 3}" images-loaded="imagesLoadedEvents" images-loaded-watch="image" masonry-tile>
+
+				        <a ng-href="{{image.src}}" data-fancybox="project-main" data-caption="{{image.caption}}" class="entry-link">
+				        	<div class="loading-indicator">
+				                <md-progress-linear class="md-primary"></md-progress-linear>
+				            </div>
+				        	<img class="project-main-image" ng-src="{{image.src}}">
+				        </a>
+
+	    			</div>
+
+	    		</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div ng-if="project.gallery" class="gallery-label-cont">
+		<h3 class="gallery-label">Project Gallery</h3>
+	</div>
+
+	<div ng-if="project.gallery" class="project-image-cont" masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".project-tile", "columnWidth" : ".project-tile", "gutter": ".gutter"}'>
+
+	    <div class="gutter"></div>
+
+	    <div ng-repeat="image in project.galleryImages" class="project-tile" ng-class="{'tile-size-one': image.size === 1,
+																						'tile-size-two': image.size === 2,
+																						'tile-size-three': image.size === 3}" 
+																						images-loaded="imagesLoadedEvents" 
+																						images-loaded-watch="image" masonry-tile>
+
+	        <a ng-href="{{image.src}}" data-fancybox="project-main" data-caption="{{image.caption}}" class="entry-link">
+	        	<div class="loading-indicator">
+	                <md-progress-linear class="md-primary"></md-progress-linear>
+	            </div>
+	        	<img class="project-gallery-image" ng-src="{{image.src}}">
+	        </a>
+
+	    </div>
+
+	</div>
+
+</div>

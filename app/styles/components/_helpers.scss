@@ -1,0 +1,209 @@
+.pixels{
+  // position: absolute;
+  z-index: +4;
+  position: absolute;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiDQoJIGhlaWdodD0iNnB4IiB2aWV3Qm94PSIwIDAgNiA2IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDYiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkxheWVyXzEiPg0KPC9nPg0KPGcgaWQ9IkxheWVyXzIiPg0KCTxnPg0KCQk8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+DQoJCTxyZWN0IHg9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz4NCgkJPHJlY3QgeD0iMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPg0KCTwvZz4NCgk8Zz4NCgkJPHJlY3QgeT0iMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPg0KCQk8cmVjdCB4PSI0IiB5PSIyIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+DQoJCTxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz4NCgk8L2c+DQoJPGc+DQoJCTxyZWN0IHk9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz4NCgkJPHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPg0KCQk8cmVjdCB4PSIyIiB5PSI0IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo=');
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+}
+
+.gold{
+  color: $amber;
+}
+
+.strikethrough{
+  text-decoration: line-through;
+}
+
+.no-display{
+  display: none !important;
+}
+
+.no-opacity{
+  opacity: 0 !important;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.hr-cont{
+  display: block;
+  width: 100%;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.italics{
+  font-style: italic;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.full-bleed{
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.auto-marg{
+  @include auto-marg(auto);
+}
+
+.clearfix:after {
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.filler{
+  height: 500px;
+  width: 100%;
+  display: block;
+  background-color: #282828;
+}
+
+.new-filler{
+  height: 500px;
+  width: 100%;
+  display: block;
+  background-color: rgba(0,0,0,0);
+}
+
+.viewport {
+  height: calc(100%);
+}
+
+@keyframes .rotating {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 2s linear infinite;
+}
+
+.back-link{
+  z-index: +15;
+  color: #B4B4B4;
+  width: 50%;
+  margin-left: 25%;
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: .17s ease-in-out;
+  padding: 20px 0px;
+  &:hover {
+      font-size: 0.77em;
+      color: #000000;
+    }
+}
+
+
+.back-link-cont{
+  // background-color: #282828;
+  display: block;
+  z-index: +999;
+}
+
+.back-link-text{
+  // color: #ffffff;
+  // color: black;
+  display: inline-block;
+  margin: 0px;
+    // &:hover {
+    //   text-decoration: underline;
+    // }
+}
+
+.back-link-icon{
+  // color: #ffffff;
+  color: black;
+}
+
+.info-icon{
+  margin-right: 16px;
+  color: #B4B4B4;
+}
+
+.settings-icon{
+  margin-right: 16px;
+  color: #000000;
+}
+
+.info-toggle-icon{
+  position: fixed;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 32px;
+  color: #B4B4B4;
+  transition: 0.17s ease-in-out;
+  z-index: +999;
+  right: 32px;
+  &:hover {
+      color: #000000;
+    }
+  &:focus {
+    outline: 0;
+  }
+
+}
+
+.hidden-mobile{
+  display: block;
+}
+
+
+
+/*    *************************
+            MEDIA QUERIES
+      *************************
+*/
+
+
+@media screen and (max-width: 960px) {
+  .new-filler{
+    height: 725px;
+    width: 100%;
+    display: block;
+    background-color: rgba(0,0,0,0);
+  }
+  .hidden-mobile{
+    display: none;
+  }
+}
+
+
+
+@media screen and (min-width: 544px) and (max-width: 767px) {
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}

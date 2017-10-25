@@ -1,0 +1,34 @@
+<h1 class="resume-title page-content">My Resume</h1>
+
+<md-content class="resume-content">
+
+    <div ng-repeat="item in cvData.forms" flex layout="column" class="full-bleed cv-repeat">
+
+        <div flex layout="row" class="hr-cont">
+            <hr class="cv-break">
+        </div>
+
+        <div flex layout="row">
+
+	        <div flex="30" layout="column" class=" cv-title-cont full-bleed">
+	            <div class="">
+	                    <h1 class="cv-section-title">{{item.title}}</h1>
+	            </div>
+	        </div>
+
+	        <div flex="70" layout="column">
+
+		        <div ng-repeat="time in item.times" class="resume-section-content" ng-class="{'cv-section-repeat': !$first}">
+		            <div class=" cv-entry-cont">
+		                <p class="cv-section-main">{{time.main}}</p>
+		                <p class="cv-section-sub" ng-bind-html="time.sub"></p>
+		            </div>
+		        </div>
+
+	        </div>
+
+        </div>
+
+    </div>
+
+</md-content>

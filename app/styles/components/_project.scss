@@ -1,0 +1,310 @@
+.project-intro-cont{
+  display: block;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.project-meta-cont{
+  display: inline-block;
+  width: 20%;
+  margin-left: 8%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.project-meta-holder{
+  margin-bottom: 20px;
+}
+
+.project-meta-header{
+  font-family: 'Playfair Display';
+  font-weight: 700;
+  font-size: 1em;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  display: inline-block;
+  width: 100%;
+}
+
+.project-meta-entry{
+  font-family: 'Abel';
+  display: inline-block;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 0px;
+  margin-top: 3px;
+  font-size: 0.85em;
+}
+
+.project-description-cont{
+  display: inline-block;
+  width: 55%;
+  vertical-align: top;
+  margin-left: 3%
+}
+
+.project-title{
+  font-family: 'Abel';
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  vertical-align: top;
+  margin-bottom: 0px;
+}
+
+.project-description{
+  font-family: 'Playfair Display';
+  font-size: 1em;
+}
+
+.design-set{
+  margin-bottom: 75px;
+}
+
+.project-tile{
+  display: inline-block;
+}
+
+.set-description-cont{
+  display: inline-block;
+  width: 28%;
+}
+
+.masonry-tile-cont{
+  display: inline-block;
+  width: 67.5%;
+  vertical-align: top;
+  margin-left: 3%;
+}
+
+.set-description-header{
+  font-family: 'Abel';
+  font-weight: 100;
+  font-size: 2em;
+  margin: 0px;
+}
+
+.set-description-body{
+  display: block;
+  font-family: 'Playfair Display';
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.video-tile{
+  background-color: rgba(40,40,40, 0);
+}
+
+.tile-size-one{
+  width: 99.3%;
+}
+
+.tile-size-two{
+  width: 49.25%;
+}
+
+.tile-size-three{
+  width: 32.85%;
+}
+
+.project-video{
+  width: 100%;
+}
+
+.project-video-image{
+  width: 100%;
+}
+
+.project-main-image{
+  width: 100%;
+}
+
+.project-gallery-image{
+  width: 100%;
+}
+
+.project-main-info{
+  margin-bottom: 25px;
+}
+
+.project-main-info-text{
+  font-family: 'Abel';
+  font-weight: 100;
+  font-size: 0.9em;
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 10px;
+  width: 85%;
+}
+
+.project-info-icon{
+  vertical-align: middle;
+  color: #000000;
+}
+
+.project-info-spacer{
+  font-style: italic;
+  font-size: 0.75em;
+  color: gray;
+}
+
+.project-video-cont{
+  margin-bottom: 100px;
+}
+
+.project-image-cont{
+  margin-bottom: 100px;
+}
+
+.gallery-label-cont{
+  width: 100%;
+  text-align: center;
+}
+
+.gallery-label{
+  font-family: 'Abel';
+  font-size: 2em;
+  margin: 25px;
+  font-weight: 100;
+}
+
+
+.main-image-repeat{
+  margin-bottom: 100px;
+}
+
+.photo-main-image-holder{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+
+/*    *************************
+            MEDIA QUERIES
+      *************************
+*/
+
+@media screen and (max-width: 543px) {
+  .project-intro-cont{
+    display: block;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .project-image-cont{
+    margin-bottom: 50px;
+  }
+
+  .project-meta-cont{
+    width: 20%;
+    margin-left: 0%;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .project-description-cont{
+    width: 65%;
+    margin-left: 10%
+  }
+
+  .project-title{
+    font-size: 2.2em;
+    margin-bottom: 0px;
+  }
+
+  .project-description{
+    font-family: 'Playfair Display';
+    font-size: 1em;
+  }
+
+  .set-description-cont{
+    display: block;
+    width: 100%;
+  }
+
+  .masonry-tile-cont{
+    margin-left: 0px;
+    display: block;
+    width: 100%;
+  }
+
+  .project-tile{
+    margin-bottom: 10px;
+  }
+
+  .tile-size-one{
+    width: 100%;
+  }
+
+  .tile-size-two{
+    width: 100%;
+  }
+
+  .tile-size-three{
+    width: 100%;
+  }
+
+  .set-description-body{
+    display: none;
+  }
+
+  .video-tile{
+    background-color: rgba(40,40,40, 1);
+  }
+
+}
+
+@media screen and (min-width: 544px) and (max-width: 767px) {
+  .project-description-cont{
+    width: 65%;
+    margin-left: 5%
+  }
+
+  .project-title{
+    font-size: 2.4em;
+    margin-bottom: 0px;
+  }
+
+  .project-description{
+    font-family: 'Playfair Display';
+    font-size: 1.1em;
+  }
+  .set-description-cont{
+    display: block;
+    width: 100%;
+  }
+
+  .masonry-tile-cont{
+    margin-left: 0px;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .set-description-cont{
+    display: block;
+    width: 100%;
+  }
+
+  .masonry-tile-cont{
+    margin-left: 0px;
+    display: block;
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1366px) {
+
+}
+
+@media screen and (min-width: 1366px) {
+
+}

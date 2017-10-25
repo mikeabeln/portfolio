@@ -1,0 +1,88 @@
+<div class="page-content main-masonry-cont" ng-cloak masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".tile", "columnWidth" : ".tile", "gutter": ".gutter"}'>
+    <div class="gutter"></div>
+
+    <div ng-repeat="tile in projects | projectsFilter as filtered_result track by $index" class="first-page tile" masonry-tile ng-mouseenter="tileEnter($event)" ng-mouseleave="tileLeave($event)" images-loaded="imagesLoadedEvents" images-loaded-watch="tile">
+
+        <!-- <div class="loading-indicator">
+            <md-progress-linear  md-diameter="50px" class="md-primary"></md-progress-linear>
+        </div> -->
+
+        <a ng-href="#!/d/{{tile.id}}" class="entry-link">
+            <div class="loading-indicator">
+                <md-progress-linear class="md-primary"></md-progress-linear>
+            </div>
+            <img ng-src="{{tile.cover}}" class="tile-image">
+        </a>
+
+        <a ng-href="#!/d/{{tile.id}}" class="entry-link">
+            <div class="entry-caption-container">
+                <div class="entry-caption-content">
+                    <div class="entry-caption-text">
+                        <span class="entry-caption-meta" ng-repeat="meta in tile.meta" ng-if="$index < 3">{{meta}}<span ng-if="!$last">,&nbsp;</span></span>
+                        <h3 class="entry-caption-title">{{tile.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+<div ng-if="$root.filter === 'All'" class="main-pagination-cont">
+    <div class="main-pagination">
+
+        <a class="prev-page pagination-link" ng-if="!prevPage">
+            <p class="page-no">{{$root.page}}</p>
+        </a>
+
+        <a class="prev-page pagination-link pagination-active" ng-if="prevPage" ng-click="reversePage()">
+            <div class="pagination-icon-cont">
+                <i class="pagination-icon prev-icon material-icons">arrow_back</i>
+            </div>
+            <p class="page-no">{{$root.page - 1}}</p>
+        </a>
+
+        <span class="pagination-spacer"></span>
+
+        <a class="next-page pagination-link" ng-if="!nextPage">
+            <p class="page-no">fin.</p>
+        </a>
+
+        <a class="next-page pagination-link pagination-active" ng-if="nextPage" ng-click="advancePage()">
+            <p class="page-no">{{$root.page + 1}}</p>
+            <div class="pagination-icon-cont">
+                <i class="pagination-icon next-icon material-icons">arrow_forward</i>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+
+<div class="main-description-cont" ng-cloak>
+    <div class="main-capabilities-cont">
+        <p ng-repeat="item in work.mainPageContent.capabilities">{{item}}</p>
+    </div>
+    <div class="description-entry-cont">
+        <h2 class="main-description" ng-bind-html="work.mainPageContent.description"></h2>
+    </div>
+    <div class="main-links-cont">
+        <p class="main-links-header" ng-bind-html="work.mainPageContent.onlineLinks.header"></p>
+        <a target="_blank" class="main-links-entry" ng-repeat="item in work.mainPageContent.onlineLinks.links" ng-href="{{item.url}}">
+            <span class="main-links-entry-holder">{{item.place}}
+                <span class="strikethrough" ng-if="item.strike">&nbsp;{{item.strike}}&nbsp;</span>
+            </span>
+        </a>
+    </div>
+    <div class="main-clients-cont">
+        <h2 class="main-clients-label">{{work.mainPageContent.clientsLabel}}</h2>
+        <div class="clients-images-cont">
+            <div ng-repeat="client in work.mainPageContent.clientImages" class="clients-images-entry">
+                <img class="clients-img" ng-src={{client.img}}>
+            </div>
+        </div>
+    </div>
+</div>
+
+
